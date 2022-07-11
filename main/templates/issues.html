@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="pt-3">
+    <h1>Digiqt Issues</h1>
+
+    {% for row in issues %}
+    <div class="row">
+        <div class="col-12">
+            <a href="{% url 'threads' row.id %}">{{ row.get_name }}</a></div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,289 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+
+<!-- start of main page wrapper -->
+	<div id="wrapper">
+		<!-- start of preloader -->
+
+		<div class="w1">
+			<!-- start of page header -->
+			<header id="header" class="nospace sticky">
+				<!-- header holder -->
+				<div class="header-holder">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12" style=" display: flex; ">
+
+								<div class="logo pull-left">
+									<a href="https://digiqt.com/"><img src="https://digiqt.com/images/White-logo.png" style=" width: 20%; "></a>
+								</div>
+								<div class="holder pull-right">
+									<a href="#" class="pe-7s-menu menu-opener opener pull-right visible-xs"></a>
+									<!-- start of page navigation -->
+									<nav id="nav" class="text-uppercase">
+										<ul class="list-inline" style="padding-left: 20px;">
+											<li>
+												<a class="drop-link" href="https://digiqt.com/#home">Home</a>
+											</li>
+											<li>
+												<a class="drop-link" href="https://digiqt.com/#services">Services</a>
+											</li>
+											<li>
+												<a class="drop-link" href="https://digiqt.com/#about">About</a>
+											</li>
+											<li>
+												<a class="drop-link" href="https://digiqt.com/#client">Clients</a>
+											</li>
+<!--											<li>-->
+<!--												<a class="drop-link" href="">Blog</a>-->
+<!--											</li>-->
+											<li>
+												<a class="drop-link" href="https://digiqt.com/#footer">Contact</a>
+											</li>
+										</ul>
+									</nav><!-- end of page navigation -->
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header><!-- end of page header -->
+		<div class="search-popup">
+			<div class="col-xs-4 col-md-4"></div>
+			<div class="col-xs-4 col-md-4 mar-top-xs dis cis">
+				<!-- quote form start here -->
+				<section class="quote-form bg-grey mar-top-xs">
+					<h2 class="form-heading text-center text-capitalize">Send A Message</h2>
+					<span class="form-title text-center text-capitalize">We'll get back to you as soon as
+						possible</span>
+					<form action="https://formspree.io/hitul@digiqt.com" method="POST">
+
+
+						<div class="form-group">
+							<input type="text" name="name" id="name" placeholder="Your name" class="form-control name"
+								required="">
+						</div>
+						<div class="form-group">
+							<input type="email" name="email" id="email" placeholder="Your email"
+								class="form-control email" required="">
+						</div>
+						<div class="form-group">
+							<input type="text" id="subject" name="subject" placeholder="Subject"
+								class="form-control subject" required="">
+						</div>
+						<div class="form-group" style=" border-radius: 10px !important; ">
+							<textarea id="comments" name="comments" style=" height: 130px; " placeholder="Your Message"
+								class="form-control comments" required=""></textarea>
+						</div>
+
+						<button class="btn btn-full disabled submitBnt" type="submit" id="" tabindex="0"
+							style="pointer-events: all; cursor: pointer;"> SEND A MESSAGE</button>
+						<button class="btn btn-full disabled mar-top-small search-close" type="submit" id="form-close"
+							style="pointer-events: all; cursor: pointer;"> CLOSE</button>
+
+					</form>
+				</section><!-- quote form end here -->
+			</div>
+			<div class="col-xs-4 col-md-4"></div>
+		</div>
+        <section class=" wedo-section add" id="services">
+			<div class="container pad-top-lg" data-scroll-index="1">
+				<div class="row mar-bottom-sm">
+
+                    <div class="container pad-top-sm padding-top-00 pad-bottom-sm">
+                        <div class="row padding-top-00">
+                            <div class="col-md-5 col-xs-12" >
+                                <!-- start of main-heading -->
+
+                                <div class="main-heading mar-bottom-xs cus-sticky ">
+                                    <h2 class="heading">{{ issue_instance.get_name }}</h2>
+                                    <p style="margin-bottom: 20px;">A free, once–weekly round-up of various tech.</p>
+
+<!--                                    <p style="margin-bottom: 20px;"> Published by Digiqt Technolabs. Our privacy, anti-spam, and GDPR policies. We take these things seriously.</p>-->
+
+<!--                                    <p>  Node.js is a registered trademark of Joyent, Inc and is used with its kind permission. Trademark policy.</p>-->
+                                </div><!-- end of main-heading -->
+                            </div>
+                            <div class="col-md-7 col-xs-12 col-12 bg-light">
+                                <!-- start of cards -->
+                                <div class="main-heading mar-bottom-xs cus-card">
+
+
+                                    <h3>{{ issue_instance.get_name }}</h3>
+                                    <hr />
+
+<!--                                    {% for row in issue_threads %}-->
+<!--                                    <div class="row mt-1">-->
+<!--                                        <div class="col-12">-->
+<!--                                            <a href="{{ row.link }}" target="_blank">{{ row.tittle }}</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-12">-->
+<!--                                            <p>{{ row.summary }}</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+<!--                                        {% for tag in row.get_tags %}-->
+<!--                                        <div class="ml-2">-->
+<!--                                            <span class="badge badge-primary">{{ tag.name }}</span>-->
+<!--                                        </div>-->
+<!--                                        {% endfor %}-->
+<!--                                    </div>-->
+<!--                                    <hr />-->
+<!--                                    {% endfor %}-->
+
+
+                                    {% for row in issue_threads %}
+                                    <div class="bb-1">
+                                        <p style="margin-bottom: 20px;"><span class="cus-index">{{ forloop.counter }}.</span><a href="{{ row.link }}" class="cus-link" target="_blank">{{ row.tittle }}</a></p>
+                                        <p class="ft-14" style="margin-bottom: 20px;">{{ row.summary }}</p>
+                                        <p>
+
+                                            {% for tag in row.get_tags %}
+                                            <span class="cus-tab">{{ tag.name }}</span>
+                                            {% endfor %}
+                                        </p>
+                                    </div>
+                                    {% endfor %}
+
+                                </div><!-- end of cards -->
+                            </div>
+                        </div>
+                    </div>
+
+				</div>
+			</div>
+		</section>
+
+
+		<!-- start of page footer -->
+<!--		<footer id="footer">-->
+<!--			<div class="bg-dark2 pad-top-lg pad-bottom-xs">-->
+<!--				<div class="container">-->
+<!--					<div class="row">-->
+<!--						<div class="col-xs-12 col-sm-4 mar-bottom-xs">-->
+<!--							&lt;!&ndash; logo &ndash;&gt;-->
+<!--							<div class="logo"><a href="#">Digiqt</a></div>-->
+<!--							<p>Digiqt Technolabs established with vision to help companies to grow with our knowledge-->
+<!--								and experience. We help ventures to solve business problems with cutting edge-->
+<!--								technology.</p>-->
+<!--							&lt;!&ndash; social &ndash;&gt;-->
+<!--							<ul class="list-inline social pad-top-xs">-->
+<!--								<li><a href="https://www.facebook.com/digiqt/?modal=composer&notif_id=1577349473044547&notif_t=aymt_upsell_tip"-->
+<!--										target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>-->
+<!--								<li><a href="https://www.linkedin.com/company/digiqt-technolabs/?viewAsMember=true"-->
+<!--										target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>-->
+<!--								</li>-->
+<!--							</ul>-->
+<!--						</div>-->
+<!--						<div class="col-xs-12 col-sm-4 mar-bottom-xs">-->
+<!--							<span class="title text-uppercase">Get In Touch</span>-->
+<!--							&lt;!&ndash; start of twitter-feed &ndash;&gt;-->
+<!--							<ul class="list-unstyled twitter-feed">-->
+<!--								<li><i class="fa fa-map-marker" aria-hidden="true"></i>C-807, Titanium City Center,-->
+<!--									Behind Titanium Mall, 100 Feet Anand Nagar Rd, opp. Seema Hall, Ahmedabad, Gujarat-->
+<!--									380015 </li>-->
+<!--								<li><i class="fa fa-phone-square" aria-hidden="true"></i><a href="tel:9974729554">+91-->
+<!--										9974729554</a></li>-->
+<!--								<li><i class="fa fa-paper-plane" aria-hidden="true"></i><a-->
+<!--										href="mailto:hitul@digiqt.com" target="_blank">hitul@digiqt.com</a></li>-->
+<!--							</ul>&lt;!&ndash; end of twitter-feed &ndash;&gt;-->
+<!--						</div>-->
+<!--						<div class="col-xs-12 col-sm-4 mar-bottom-xs" style=" margin-bottom: -150px !important; ">-->
+<!--							<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">-->
+<!--								<iframe-->
+<!--									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.3273922615467!2d72.52079411496764!3d23.011748384958562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e854d9b3e3e0d%3A0x5f5bfe28cd86432f!2sDigiqt%20Technolabs!5e0!3m2!1sen!2sin!4v1577518457334!5m2!1sen!2sin"-->
+<!--									width="300" height="300" frameborder="0" style="border:0;"-->
+<!--									allowfullscreen=""></iframe> </div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			&lt;!&ndash; start of f-bottom &ndash;&gt;-->
+<!--			<div class="bg-dark3 f-bottom">-->
+<!--				<div class="container">-->
+<!--					<div class="row">-->
+<!--						<div class="col-xs-12">-->
+<!--							<span class="pull-left">© Digiqt 2019, All Rights Reserved.</span>-->
+<!--							<span class="pull-right"><a href="#">Policy Privacy</a> &nbsp; &nbsp; &nbsp; &nbsp; <a-->
+<!--									href="#">Terms &amp; Conditions</a></span>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>&lt;!&ndash; end of f-bottom &ndash;&gt;-->
+<!--		</footer>&lt;!&ndash; end of page footer &ndash;&gt;-->
+	</div>
+	<!-- Back Top of the page -->
+	</div><!-- end of main page wrapper -->
+
+
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	<script>
+		$(document).ready(function () {
+			// Add smooth scrolling to all links
+			$("a").on('click', function (event) {
+
+				// Make sure this.hash has a value before overriding default behavior
+				if (this.hash !== "") {
+					// Prevent default anchor click behavior
+					event.preventDefault();
+
+					// Store hash
+					var hash = this.hash;
+
+					// Using jQuery's animate() method to add smooth page scroll
+					// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+					$('html, body').animate({
+						scrollTop: $(hash).offset().top
+					}, 800, function () {
+
+						// Add hash (#) to URL when done scrolling (default click behavior)
+						window.location.hash = hash;
+					});
+				} // End if
+			});
+		});
+	</script>
+	<!--Start of Tawk.to Script-->
+	<!--End of Tawk.to Script-->
+
+
+<!--<div class="pt-3">-->
+
+
+
+<!--    <h1>Digiqt Issues</h1>-->
+
+<!--    <a href="{% url 'issues' %}"><- Back</a>-->
+
+<!--    <h3>{{ issue_instance.get_name }}</h3>-->
+<!--    <hr />-->
+
+<!--    {% for row in issue_threads %}-->
+<!--    <div class="row mt-1">-->
+<!--        <div class="col-12">-->
+<!--            <a href="{{ row.link }}" target="_blank">{{ row.tittle }}</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--        <div class="col-12">-->
+<!--            <p>{{ row.summary }}</p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--        {% for tag in row.get_tags %}-->
+<!--        <div class="ml-2">-->
+<!--            <span class="badge badge-primary">{{ tag.name }}</span>-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+<!--    <hr />-->
+<!--    {% endfor %}-->
+<!--</div>-->
+
+{% endblock %}
